@@ -1,0 +1,21 @@
+services:
+  app:
+    container_name: app
+    user: root
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: livekit-next-app
+    env_file:
+      - ./.env.local
+    ports:
+      - "3000:3000"
+    network_mode: host
+  livekit:
+    image: livekit/livekit-server
+    user: root
+    container_name: livekit
+    command: --dev --config ./livekit/livekit-config.yaml
+    network_mode: host
+    volumes:
+      - ./livekit:/livekit

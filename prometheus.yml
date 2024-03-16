@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets:
+          - prometheus:9090
+  - job_name: "livekit"
+    metrics_path: ""
+    static_configs:
+      - targets: ["172.17.0.1:6789"] # Replace exporter_host with the actual host where the exporter Prometheus instance is running
