@@ -5,7 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: livekit-next-app
+    image: bun-livekit-next
     env_file:
       - ./.env.local
     ports:
